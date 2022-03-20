@@ -1,0 +1,125 @@
+<?php
+
+class Property {
+
+    public $nama, $jenis, $type, $harga;
+
+    public function __construct( $nama = "nama", $jenis = "jenis", $type = "type",  $harga = 0) {
+
+        $this->nama =$nama;
+        $this->jenis =$jenis;
+        $this->type =$type;
+        $this->harga =$harga;
+
+    }
+
+    public function getlabel() {
+
+        return "$this->jenis, $this->type";
+    } 
+
+    public function getInfoProperty() {
+
+        $str = "{$this->nama} | {$this->getlabel()} (Rp. {$this->harga})";
+
+        return $str;
+    }
+
+}
+
+class Koskosan extends Property {
+
+    public function getInfoProperty () {
+        $str = "Koskosan = {$this->nama}, {$this->getlabel()}, {$this->harga} ";
+        return $str;
+
+    }
+
+}
+
+class Ruko extends Property {
+
+    public function getInfoProperty () {
+        $str = "Ruko = {$this->nama}, {$this->getlabel()}, {$this->harga} ";
+        return $str;
+
+    }
+
+}
+
+<?php
+
+class penyewaangedung {
+
+    public $nama, $jenis, $type, $harga;
+
+    public function __construct( $nama = "nama", $jenis = "jenis", $type = "type",  $harga = 0) {
+
+        $this->nama =$nama;
+        $this->jenis =$jenis;
+        $this->type =$type;
+        $this->harga =$harga;
+
+    }
+
+    public function getlabel() {
+
+        return "$this->jenis, $this->type";
+    } 
+
+    public function getInfoPenyewaangedung() {
+
+        $str = "{$this->nama} | {$this->getlabel()} (Rp. {$this->harga})";
+
+        return $str;
+    }
+
+}
+
+class gedungnikah extends penyewaangedung {
+
+    public function getInfoPenyewaangedung () {
+        $str = "gedungnikah = {$this->nama}, {$this->getlabel()}, {$this->harga} ";
+        return $str;
+
+    }
+
+}
+
+class gedungpertemuan extends penyewaangedung {
+
+    public function getInfoPenyewaangedung () {
+        $str = "penyewaangedung = {$this->nama}, {$this->getlabel()}, {$this->harga} ";
+        return $str;
+
+    }
+
+}
+
+$Property1 = new Koskosan("Dimas", "Standar", "1 lantai", "4735000");
+$Property2 = new Koskosan("Naufal", "Superior", "2 lantai", "6878000");
+$Property3 = new Ruko("H.Samsul", "Elite", "lantai 3", "2400000");
+$Property4 = new Ruko("M.Aulia", "Junior", "lantai 4", "1034000");
+$Penyewaangedung1 = new gedungnikah("samsir", "junior suite", "4 lantai", "54735000");
+$Penyewaangedung2 = new gedungnikah("hilda", "Suite", "3 lantai", "76878000");
+$Penyewaangedung3 = new gedungpertemuan("jack", "standar", "lantai 2", "22400000");
+$Penyewaangedung4 = new gedungpertemuan("maulida", "Elite", "lantai 5", "13034000");
+
+echo $Property1->getInfoProperty();
+echo "<br>";
+echo $Property2->getInfoProperty();
+echo "<br>";
+echo $Property3->getInfoProperty();
+echo "<br>";
+echo $Property4->getInfoProperty();
+echo "<hr>";
+echo $SportCar1->getInfoPenyewaangedung();
+echo "<br>";
+echo $SportCar2->getInfoPenyewaangedung();
+echo "<br>";
+echo $SportCar3->getInfoPenyewaangedung();
+echo "<br>";
+echo $SportCar4->getInfoPenyewaangedung();
+echo "<hr>";
+
+?>
